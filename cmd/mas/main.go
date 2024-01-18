@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log/slog"
 	"medius-server/pkg/medius"
 	"medius-server/pkg/tcp"
@@ -36,6 +37,7 @@ func handleClient(conn net.Conn) {
 }
 
 func main() {
+	fmt.Println("Starting Medius Authentication Server...")
 	tcpServer := tcp.NewTCPServer(handleClient)
 	err := tcpServer.ListenAndServe(":10075")
 	if err != nil {
