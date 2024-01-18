@@ -7,14 +7,6 @@ import (
 	"net"
 )
 
-// TODO packets for muis server
-//RT_MSG_SERVER_HELLO
-//RT_MSG_SERVER_CONNECT_ACCEPT_TCP
-//RT_MSG_SERVER_CONNECT_COMPLETE
-//RT_MSG_SERVER_ECHO
-//RT_MSG_CLIENT_DISCONNECT_WITH_REASON
-//MediusUniverseVariableInformationResponse
-
 func handleClient(conn net.Conn) {
 	defer conn.Close()
 
@@ -45,7 +37,7 @@ func handleClient(conn net.Conn) {
 
 func main() {
 	tcpServer := tcp.NewTCPServer(handleClient)
-	err := tcpServer.ListenAndServe(":10071")
+	err := tcpServer.ListenAndServe(":10075")
 	if err != nil {
 		panic(err)
 	}
